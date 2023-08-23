@@ -25,7 +25,7 @@ const TextEditor = () => {
 
     //creating and disconnecting sockets
     useEffect(() => {
-        const s = io("http://localhost:8000")
+        const s = io("https://google-docs-v2st.onrender.com")
         setSocket(s)
 
         return () => {
