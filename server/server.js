@@ -7,7 +7,12 @@ mongoose.connect(URI)
 
 const PORT =  8000
 
-const io = require("socket.io")(PORT, { cors: { origin: "*"} })
+const io = require("socket.io")(PORT, { 
+    cors: {
+        origin: 'https://google-docs-clone-9bit.onrender.com/',
+        methods: ["GET", "POST"],
+    },
+})
 
 const defaultValue = ""
 
