@@ -11,8 +11,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="https://google-docs-clone-9bit.onrender.com" element={<Navigate replace to={`/documents/${uuidV4()}`} />} />
-        <Route path="https://google-docs-clone-9bit.onrender.com/documents/:id" exact element={<TextEditor/>}/>
+        <Route path="/" element={<Navigate replace to={`/documents/${uuidV4()}`} />} />
+        <Route path="/documents/:id" exact element={<TextEditor/>}/>
       </Routes>
     </Router>
   );
