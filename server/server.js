@@ -1,19 +1,31 @@
 
 const mongoose = require("mongoose")
 const Document = require("./document.js")
+const {createServer} = require("http")
+const { Server } = require("socket.io")
 
 const URI = 'mongodb+srv://testuser:testuser01@cluster0.heeeiru.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(URI)
 
 const PORT =  8000
 
-const io = require("socket.io")(PORT, { 
-    cors: {
-        origin: '*',
-        methods: ["GET", "POST"],
-    },
-})
+const httpServer = createServer();
+const io = new Server(httpServer, {
+  cors: {
+    origin: "https://google-docs-clone-9bit.onrender.com"
+  }
+});
+/**
+ * import { createServer } from "http";
+import { Server } from "socket.io";
 
+const httpServer = createServer();
+const io = new Server(httpServer, {
+  cors: {
+    origin: "https://example.com"
+  }
+});
+ */
 const defaultValue = ""
 
 io.on("connection", socket => {
