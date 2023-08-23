@@ -25,7 +25,7 @@ const TextEditor = () => {
 
     //creating and disconnecting sockets
     useEffect(() => {
-        const s = io("http://localhost:3001")
+        const s = io("http://localhost:8000")
         setSocket(s)
 
         return () => {

@@ -2,14 +2,12 @@
 const mongoose = require("mongoose")
 const Document = require("./document.js")
 
-mongoose.connect('mongodb+srv://swatantra1265:alexcosta01@cluster0.heeeiru.mongodb.net/?retryWrites=true&w=majority')
+const URI = 'mongodb+srv://testuser:testuser01@cluster0.heeeiru.mongodb.net/?retryWrites=true&w=majority'
+mongoose.connect(URI)
 
-const io = require("socket.io")(3001, {
-  cors: {
-      origin: "http://localhost:3000",
-    methods: ["GET", "POST"],
-},
-})
+const PORT =  8000
+
+const io = require("socket.io")(PORT, { cors: { origin: "*"} })
 
 const defaultValue = ""
 
