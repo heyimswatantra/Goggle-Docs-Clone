@@ -15,6 +15,8 @@ const io = new Server(httpServer, {
     origin: "https://google-docs-clone-9bit.onrender.com"
   }
 });
+
+httpServer.listen(PORT);
 /**
  * import { createServer } from "http";
 import { Server } from "socket.io";
