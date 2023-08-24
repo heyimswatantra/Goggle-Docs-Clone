@@ -3,9 +3,9 @@ const mongoose = require("mongoose")
 const Document = require("./document.js")
 const {createServer} = require("http")
 const { Server } = require("socket.io")
-const express = require("express")
-
+var cors = require('cors')
 const app = express();
+app.use(cors());
 
 const URI = 'mongodb+srv://testuser:testuser01@cluster0.heeeiru.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(URI)
