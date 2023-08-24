@@ -3,13 +3,16 @@ const mongoose = require("mongoose")
 const Document = require("./document.js")
 const {createServer} = require("http")
 const { Server } = require("socket.io")
+const express = require("express")
+
+const app = express();
 
 const URI = 'mongodb+srv://testuser:testuser01@cluster0.heeeiru.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(URI)
 
-const PORT =  8000
+const PORT =  8000 || process.env.PORT;
 
-const httpServer = createServer();
+const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
     origin: "*"
