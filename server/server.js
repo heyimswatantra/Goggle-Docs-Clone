@@ -18,7 +18,7 @@ const PORT =  8000 || process.env.PORT;
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "https://google-docs-clone-9bit.onrender.com",
+    origin: "http://localhost:3000",
   }
 });
 
