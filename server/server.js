@@ -2,7 +2,7 @@
 const mongoose = require("mongoose")
 const Document = require("./document.js")
 const {createServer} = require("http")
-const { Server } = require("socket.io")
+const {Server} = require('socket.io')
 const express = require("express")
 const app = express();
 
@@ -18,22 +18,14 @@ const PORT =  8000 || process.env.PORT;
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "https://google-docs-clone-9bit.onrender.com/:id",
+    origin: ["*", "*:*", "https://google-docs-clone-9bit.onrender.com"],
+    allowedHeaders: ["Access-Control-Allow-Origin"],
+    credentials: true
   }
 });
 
 httpServer.listen(PORT);
-/**
- * import { createServer } from "http";
-import { Server } from "socket.io";
 
-const httpServer = createServer();
-const io = new Server(httpServer, {
-  cors: {
-    origin: "https://example.com"
-  }
-});
- */
 const defaultValue = ""
 
 io.on("connection", socket => {
