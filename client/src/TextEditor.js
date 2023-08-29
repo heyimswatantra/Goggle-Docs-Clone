@@ -28,9 +28,9 @@ const TextEditor = () => {
         const s = io("https://google-docs-v2st.onrender.com")
         setSocket(s)
 
-        return () => {
-            s.disconnect()
-        }
+        // return () => {
+        //     s.disconnect()
+        // }
     }, [])
 
     useEffect(() => {
